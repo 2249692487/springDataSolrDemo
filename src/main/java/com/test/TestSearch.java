@@ -61,6 +61,7 @@ public class TestSearch {
          */
         //分页查询, 第一个参数是查询对象, 第二个参数: 返回的数据集合中泛型的类型
         ScoredPage<Item> items = solrTemplate.queryForPage(query, Item.class);
+
         //总页数
         System.out.println("==============总页数============" + items.getTotalPages());
         //查询到的总条数
@@ -69,6 +70,7 @@ public class TestSearch {
         System.out.println("==============每页显示的条数====" + items.getNumberOfElements());
         //查询到的数据的集合
         System.out.println("==============集合==============" + items.getContent());
+
         if (items != null) {
             for (Item item : items.getContent()) {
                 System.out.println("=====id=====" + item.getId());
